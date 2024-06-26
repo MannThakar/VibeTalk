@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { auth, provider } from "../Config/Firebase";
 import { signInWithPopup } from "firebase/auth";
@@ -5,14 +6,15 @@ import Cookies from "universal-cookie";
 import GoogleLogo from "../Components/GoogleLogo";
 // import GoogleLogo from "../assets/GoogleLogo";
 
-const Signup = () => {
-  async function signupWithGoogle(props) {
+const Signup = ({setAuth}) => {
+  async function signupWithGoogle() {
     // Google Sign Up Logic
     try {
       const Google = await signInWithPopup(auth, provider);
       console.log(Google);
       const cookies = new Cookies();
       cookies.set("token", Google.user.refreshToken);
+      setAuth(Google.user.refreshToken);
     } catch (error) {
       console.log(error.message);
     }

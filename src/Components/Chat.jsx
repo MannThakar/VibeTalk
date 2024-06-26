@@ -12,6 +12,7 @@ import { db, auth } from "../Config/Firebase";
 import EmojiPicker from "emoji-picker-react";
 import { Smiley, Exit, Mic } from "../icons";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
+import send from "../../public/send.png"
 
 const Chat = ({ room }) => {
   const [messages, setMessages] = useState("");
@@ -140,16 +141,12 @@ const Chat = ({ room }) => {
               justifyContent: "center",
             }}
           >
-            <img src="public/send.png" alt="Send" className="h-6 w-6" />
-            {/* <Mic className="h-6 text-gray-700 hover:bg-gray-200 hover:rounded-full" /> */}
-            {/* <Mic
-              className="h-6 text-gray-700 hover:bg-gray-200 hover:rounded-full cursor-pointer"
-            /> */}
-            <AudioRecorder
+            <img src={send} alt="Send" className="h-6 w-6" />
+            {/* <AudioRecorder
               onRecordingComplete={(blob) => addAudioElement(blob)}
               recorderControls={recorderControls}
             />
-            <button onClick={recorderControls.stopRecording}>Stop recording</button>
+            <button onClick={recorderControls.stopRecording}>Stop recording</button> */}
           </button>
         </div>
       </form>
